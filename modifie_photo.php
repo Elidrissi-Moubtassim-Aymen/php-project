@@ -15,7 +15,7 @@ if (isset($_GET['id'])) {
 	$id_photo = $_GET['id'];
 	$requete = "SELECT fichier,date_photo,description,proprietaire FROM photo WHERE id = $id_photo";
 	$resultat = $connect->prepare($requete);
-        $resulat->execute();
+    $resultat->execute();
 	if ($nuplet = $resultat->fetch(PDO::FETCH_ASSOC)) {
 	 	if ($nuplet['proprietaire'] == $login) {
 	 		$fichier = $nuplet['fichier'];

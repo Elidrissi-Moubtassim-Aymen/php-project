@@ -20,7 +20,7 @@ if (isset($_POST['but']) && $_POST['but'] == 'ajout_commentaire') {
 	if ($id_photo != null) {
 		$requete = "UPDATE photo SET description = '$description', date_photo = '$date' WHERE id = $id_photo";
 		$resultat = $connect->prepare($requete);
-        $resulat->execute();
+        $resultat->execute();
 	}
 } else {
 	$id_photo = $_GET['id'];
@@ -30,15 +30,15 @@ if (isset($_POST['but']) && $_POST['but'] == 'ajout_commentaire') {
 <html>
 <head><title>Photo</title></head>
 <body>
-<h1>A faire: faire du nom du propri�taire un lien vers la liste de ses photos. Faire de m�me pour les personnes qui ont post� des commentaires</h1>
-<h1>A faire: si la personne qui regarde la page est le propri�taire de la photo, ajouter un lien ou un formulaire � c�t� de chaque commentaire permettant de supprimer ce commentaire</h1>
+<h1>A faire: faire du nom du proprietaire un lien vers la liste de ses photos. Faire de m�me pour les personnes qui ont post� des commentaires</h1>
+<h1>A faire: si la personne qui regarde la page est le proprietaire de la photo, ajouter un lien ou un formulaire � c�t� de chaque commentaire permettant de supprimer ce commentaire</h1>
 <?php
 	if ($id_photo == null) {
 		print "<p><b>Aucune photo de specifiee!</b></p>";
 	} else {
 	  $requete = "SELECT fichier,date_photo,description,proprietaire FROM photo WHERE id = $id_photo";
 	  $resultat = $connect->prepare($requete);
-      $resulat->execute();
+      $resultat->execute();
 	  if ($nuplet = $resultat->fetch(PDO::FETCH_ASSOC)) {
 	  	$proprietaire = $nuplet['proprietaire'];
 	  	affiche_photo(
@@ -48,7 +48,7 @@ if (isset($_POST['but']) && $_POST['but'] == 'ajout_commentaire') {
 	  			$nuplet['fichier']);
 	  	$requete = "SELECT auteur, contenu, depot FROM commentaire WHERE id_photo = $id_photo";
 	  	$resultat = $connect->prepare($requete);
-        $resulat->execute();
+        $resultat->execute();
 	  	while ($nuplet = $resultat->fetch(PDO::FETCH_ASSOC)) {
 	  		affiche_commentaire(
 	  				$nuplet['auteur'],

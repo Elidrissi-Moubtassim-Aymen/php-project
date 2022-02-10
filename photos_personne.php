@@ -19,7 +19,7 @@ print "<h2>Photos de $personne</h2>\n";
 print "<ol>\n";
 $requete = "SELECT id, description FROM photo WHERE proprietaire = '$personne'";
 $resultat = $connect->prepare($requete);
-$resulat->execute();
+$resultat->execute();
 
 while ($nuplet = $resultat->fetch(PDO::FETCH_ASSOC)) {
 	$id_photo = $nuplet['id'];

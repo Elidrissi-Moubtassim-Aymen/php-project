@@ -18,6 +18,7 @@ print "<h2>Bienvenue $login !</h2>";
 	$requete = "SELECT login FROM utilisateur";
 	$resultat = $connect->prepare($requete);
 	$connect->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+	$resultat->execute();
 	while ($nuplet = $resultat->fetch(PDO::FETCH_ASSOC)) {
 		$personne = $nuplet['login'];
 		$personne_param = rawurlencode($personne);
